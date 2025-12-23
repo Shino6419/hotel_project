@@ -36,28 +36,28 @@ class AdminController extends Controller
     }
     public function home()
     {
-        // Lấy 3 phòng deluxe ngẫu nhiên
+
         $deluxeRooms = Room::where('room_type', 'deluxe')
             ->inRandomOrder()
             ->limit(3)
             ->get();
 
-        // Lấy 3 phòng premium ngẫu nhiên
+
         $premiumRooms = Room::where('room_type', 'premium')
             ->inRandomOrder()
             ->limit(3)
             ->get();
 
-        // Lấy 3 phòng regular ngẫu nhiên
+
         $regularRooms = Room::where('room_type', 'regular')
             ->inRandomOrder()
             ->limit(3)
             ->get();
 
-        // Gộp các phòng
+
         $room = $deluxeRooms->merge($premiumRooms)->merge($regularRooms);
 
-        // Nếu không đủ 9 phòng, lấy thêm ngẫu nhiên từ các phòng còn lại
+
         if ($room->count() < 9) {
             $remainingRooms = Room::whereNotIn('id', $room->pluck('id'))
                 ->inRandomOrder()
@@ -88,6 +88,7 @@ class AdminController extends Controller
     public function room_delete($id)
     {
         $data = Room::find($id);
+        Booking::where('room_id', $id)->delete();
         $data->delete();
         return redirect()->back();
     }

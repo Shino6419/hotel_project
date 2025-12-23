@@ -44,6 +44,8 @@ route::get('/edit_booking/{id}', [HomeController::class, 'edit_booking'])->middl
 
 route::post('/update_booking/{id}', [HomeController::class, 'update_booking'])->middleware('auth');
 
+route::delete('/cancel_booking/{id}', [HomeController::class, 'cancel_booking'])->middleware('auth');
+
 route::get('/booking', [AdminController::class, 'booking']);
 
 route::get('/approve_book/{id}', [AdminController::class, 'approve_book']);

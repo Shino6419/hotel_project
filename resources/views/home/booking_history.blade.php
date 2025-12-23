@@ -89,6 +89,28 @@
             transition: ease-in all 0.5s;
             color: #fff;
         }
+
+        .btn-edit {
+            background-color: #f39c12 !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .btn-edit:hover {
+            background-color: #e67e22 !important;
+            color: white !important;
+        }
+
+        .btn-cancel-small {
+            background-color: #e74c3c !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .btn-cancel-small:hover {
+            background-color: #c0392b !important;
+            color: white !important;
+        }
     </style>
 </head>
 
@@ -141,40 +163,55 @@
                         </tr>
 
                         @foreach($bookings as $booking)
-                            <tr>
-                                <td>{{ $booking->room->room_title }}</td>
-                                <td>{{ $booking->name }}</td>
-                                <td>{{ $booking->email }}</td>
-                                <td>{{ $booking->phone }}</td>
-                                <td>{{ $booking->start_date }}</td>
-                                <td>{{ $booking->end_date }}</td>
-                                <td>
-                                    <?php
-                                        $startDate = new DateTime($booking->start_date);
-                                        $endDate = new DateTime($booking->end_date);
-                                        $nights = $endDate->diff($startDate)->days;
-                                        $totalPrice = $booking->room->price * $nights;
-                                    ?>
-                                    {{ number_format($totalPrice, 0, ',', '.') }} vnđ
-                                </td>
-                                <td>
-                                    @if($booking->status == 'approve')
-                                        <span class="status-approve">Chấp nhận</span>
-                                    @elseif($booking->status == 'rejected')
-                                        <span class="status-rejected">Hủy</span>
-                                    @else
-                                        <span class="status-waiting">Chờ xác nhận</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if($booking->status == 'waiting')
-                                        <a class="btn btn-primary btn-fixed"
-                                            href="{{ url('edit_booking', $booking->id) }}">Chỉnh sửa</a>
-                                    @else
-                                        <span style="color: #999; font-size: 12px;">Không thể chỉnh sửa</span>
-                                    @endif
-                                </td>
-                            </tr>
+                            @if($booking->room)
+                                        <tr>
+                                            <td>{{ $booking->room->room_title }}</td>
+                                            <td>{{ $booking->name }}</td>
+                                            <td>{{ $booking->email }}</td>
+                                            <td>{{ $booking->phone }}</td>
+                                            <td>{{ $booking->start_date }}</td>
+                                            <td>{{ $booking->end_date }}</td>
+                                            <td>
+                                                <?php
+                                $startDate = new DateTime($booking->start_date);
+                                $endDate = new DateTime($booking->end_date);
+                                $nights = $endDate->diff($startDate)->days;
+                                $totalPrice = $booking->room->price * $nights;
+                                                        ?>
+                                                {{ number_format($totalPrice, 0, ',', '.') }} vnđ
+                                            </td>
+                                            <td>
+                                                @if($booking->status == 'approve')
+                                                    <span class="status-approve">Chấp nhận</span>
+                                                @elseif($booking->status == 'rejected')
+                                                    <span class="status-rejected">Hủy</span>
+                                                @else
+                                                    <span class="status-waiting">Chờ xác nhận</span>
+                                                @endif
+                                            </td>
+                                            <td style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap;">
+                                                @if($booking->status == 'waiting')
+                                                    <a class="btn btn-edit btn-fixed" href="{{ url('edit_booking', $booking->id) }}">Chỉnh
+                                                        sửa</a>
+                                                    <form action="{{ url('cancel_booking', $booking->id) }}" method="POST"
+                                                        style="display: inline-block;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-cancel-small btn-fixed"
+                                                            onclick="return confirm('Bạn chắc chắn muốn hủy đơn đặt này?')">Hủy đơn</button>
+                                                    </form>
+                                                @else
+                                                    <span style="color: #999; font-size: 12px;">Không thể chỉnh sửa</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                            @else
+                                <tr>
+                                    <td colspan="9" style="text-align: center; color: #999;">
+                                        <em>Phòng đã bị xóa khỏi hệ thống</em>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </table>
                 </div>

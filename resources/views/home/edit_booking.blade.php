@@ -92,6 +92,27 @@
             color: white;
         }
 
+        .cancel-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 17px;
+            transition: ease-in all 0.5s;
+            background-color: #dc3545;
+            color: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cancel-btn:hover {
+            background-color: #c82333;
+            transition: ease-in all 0.5s;
+            color: #fff;
+        }
+
         .room-info {
             background: #f9f9f9;
             padding: 15px;
@@ -134,10 +155,16 @@
                 @endforeach
             @endif
 
-            <div class="room-info">
-                <p><strong>Phòng:</strong> {{ $booking->room->room_title }}</p>
-                <p><strong>Giá phòng:</strong> {{ number_format($booking->room->price, 0, ',', '.') }} vnđ/đêm</p>
-            </div>
+            @if($booking->room)
+                <div class="room-info">
+                    <p><strong>Phòng:</strong> {{ $booking->room->room_title }}</p>
+                    <p><strong>Giá phòng:</strong> {{ number_format($booking->room->price, 0, ',', '.') }} vnđ/đêm</p>
+                </div>
+            @else
+                <div class="alert alert-warning">
+                    <strong>Cảnh báo:</strong> Phòng đã bị xóa khỏi hệ thống
+                </div>
+            @endif
 
             <form action="{{ url('update_booking', $booking->id) }}" method="POST">
                 @csrf

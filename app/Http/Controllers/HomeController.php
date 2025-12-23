@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         $max_guest = $request->input('max_guest');
         if ($max_guest) {
-            $query->where('max_guest', '>=', $max_guest);
+            $query->where('max_guest', '=', $max_guest);
         }
 
         $room = $query->get();
@@ -143,4 +143,25 @@ class HomeController extends Controller
         ;
 
     }
+
+    public function cancel_booking($id)
+    {
+        $booking = Booking::find($id);
+
+        if (!$booking) {
+            return redirect()->back()->with('error', 'Không tìm thấy đơn đặt');
+        }
+
+        if ($booking->email != auth()->user()->email) {
+            return redirect()->back()->with('error', 'Không có quyền hủy đơn đặt này');
+        }
+
+        if ($booking->status === 'confirmed') {
+            return redirect()->back()->with('error', 'Không thể hủy đơn đặt đã được xác nhận');
+        }
+
+        $booking->delete();
+        return redirect()->route('booking_history')->with('success', 'Hủy đơn đặt thành công');
+    }
 }
+

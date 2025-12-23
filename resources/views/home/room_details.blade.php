@@ -310,7 +310,7 @@
                      <input type="date" name="endDate" id="endDate">
                   </div>
 
-                  <!-- Tính toán tiền -->
+
                   <div class="price-calculation" id="priceCalculation" style="display: none;">
                      <div class="price-row">
                         <span class="price-label">Giá mỗi đêm:</span>
@@ -357,21 +357,20 @@
       </div>
    </div>
 
-   <!--  footer -->
+
    @include('home.footer')
-   <!-- end footer -->
-   <!-- Javascript files-->
+
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"></script>
    <script src="js/jquery.min.js"></script>
-   <!-- sidebar -->
+
    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
    <script src="js/custom.js"></script>
 
    <script type="text/javascript">
-
-      document.addEventListener('DOMContentLoaded', function () {
+      $(document).ready(function () {
+         // Dropdown handling
          const dropdownToggles = document.querySelectorAll('[data-bs-toggle="dropdown"]');
          dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (e) {
@@ -383,7 +382,6 @@
             });
          });
 
-
          document.addEventListener('click', function (e) {
             const dropdowns = document.querySelectorAll('.dropdown-menu.show');
             dropdowns.forEach(menu => {
@@ -392,61 +390,59 @@
                }
             });
          });
-      });
-
-      <script type="text/javascript">
-         $(function () {
-         var dtToday = new Date();
-
-         var month = dtToday.getMonth() + 1;
-
-         var day = dtToday.getDate();
-
-         var year = dtToday.getFullYear();
-
-         if (month < 10)
-         month = '0' + month.toString();
-
-         if (day < 10)
-         day = '0' + day.toString();
-
-         var maxDate = year + '-' + month + '-' + day;
-         $('#startDate').attr('min', maxDate);
-         $('#endDate').attr('min', maxDate);
-
 
          const roomPrice = {{ $room->price }};
-         const priceCalculation = $('#priceCalculation');
-         const nightsSpan = $('#nights');
-         const totalPriceSpan = $('#totalPrice');
+         console.log('Room price:', roomPrice);
 
          function calculatePrice() {
             const startDate = $('#startDate').val();
-         const endDate = $('#endDate').val();
+            const endDate = $('#endDate').val();
 
-         if (startDate && endDate) {
+            console.log('Start Date:', startDate, 'End Date:', endDate);
+
+            if (startDate && endDate) {
                const start = new Date(startDate);
-         const end = new Date(endDate);
-         const diffTime = Math.abs(end - start);
-         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+               const end = new Date(endDate);
+               const diffTime = Math.abs(end - start);
+               const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+               console.log('Days:', diffDays);
 
                if (diffDays > 0) {
                   const totalPrice = diffDays * roomPrice;
-         nightsSpan.text(diffDays);
-         totalPriceSpan.text(totalPrice.toLocaleString('vi-VN'));
-         priceCalculation.show();
+                  console.log('Total Price:', totalPrice);
+
+                  $('#nights').text(diffDays);
+                  $('#totalPrice').text(new Intl.NumberFormat('vi-VN').format(totalPrice));
+                  $('#priceCalculation').show();
                } else {
-            priceCalculation.hide();
+                  $('#priceCalculation').hide();
                }
             } else {
-            priceCalculation.hide();
+               $('#priceCalculation').hide();
             }
          }
 
          $('#startDate, #endDate').on('change', function () {
+            console.log('Date input changed');
             calculatePrice();
          });
 
+
+         var dtToday = new Date();
+         var month = dtToday.getMonth() + 1;
+         var day = dtToday.getDate();
+         var year = dtToday.getFullYear();
+
+         if (month < 10)
+            month = '0' + month.toString();
+
+         if (day < 10)
+            day = '0' + day.toString();
+
+         var maxDate = year + '-' + month + '-' + day;
+         $('#startDate').attr('min', maxDate);
+         $('#endDate').attr('min', maxDate);
       });
    </script>
 </body>

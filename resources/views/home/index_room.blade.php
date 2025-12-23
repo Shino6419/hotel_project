@@ -38,68 +38,70 @@
 <header>
    @include('home.header')
 </header>
-<div class="container">
-   <div class="row">
-      <div class="col-md-12">
-         <div class="titlepage">
-            <h2>Hệ thống phòng</h2>
-            <p>Hệ thống phòng nghỉ rộng rãi, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư cho mọi du khách </p>
+<div class="our_room" id="room">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Hệ thống phòng</h2>
+               <p>Hệ thống phòng nghỉ rộng rãi, đầy đủ tiện nghi, đảm bảo sự thoải mái và riêng tư cho mọi du khách </p>
+            </div>
          </div>
       </div>
-   </div>
 
-   <div class="row" style="margin-bottom: 30px;">
-      <div class="col-md-12">
-         <form action="{{ url('index_room') }}" method="GET" class="row g-2">
-            <div class="col-md-4">
-               <input type="text" name="search" class="form-control" placeholder="Tìm kiếm phòng..."
-                  value="{{ request('search') }}">
-            </div>
-            <div class="col-md-3">
-               <select name="room_type" class="form-control">
-                  <option value="">-- Loại phòng --</option>
-                  <option value="regular" @if(request('room_type') == 'regular') selected @endif>Thường</option>
-                  <option value="premium" @if(request('room_type') == 'premium') selected @endif>Trung</option>
-                  <option value="deluxe" @if(request('room_type') == 'deluxe') selected @endif>Sang</option>
-               </select>
-            </div>
-            <div class="col-md-3">
-               <input type="number" name="max_guest" class="form-control" placeholder="Số lượng người"
-                  value="{{ request('max_guest') }}" min="1">
-            </div>
-            <div class="col-md-2">
-               <button type="submit" class="btn btn-search w-100">Tìm kiếm</button>
-            </div>
-            @if(request('search') || request('room_type') || request('max_guest'))
-               <div class="col-md-12">
-                  <a href="{{ url('index_room') }}" class="btn btn-secondary w-100">Xóa bộ lọc</a>
+      <div class="row" style="margin-bottom: 30px;">
+         <div class="col-md-12">
+            <form action="{{ url('index_room') }}" method="GET" class="row g-2">
+               <div class="col-md-4">
+                  <input type="text" name="search" class="form-control" placeholder="Tìm kiếm phòng..."
+                     value="{{ request('search') }}">
                </div>
-            @endif
-         </form>
+               <div class="col-md-3">
+                  <select name="room_type" class="form-control">
+                     <option value="">-- Loại phòng --</option>
+                     <option value="regular" @if(request('room_type') == 'regular') selected @endif>Thường</option>
+                     <option value="premium" @if(request('room_type') == 'premium') selected @endif>Trung</option>
+                     <option value="deluxe" @if(request('room_type') == 'deluxe') selected @endif>Sang</option>
+                  </select>
+               </div>
+               <div class="col-md-3">
+                  <input type="number" name="max_guest" class="form-control" placeholder="Số lượng người"
+                     value="{{ request('max_guest') }}" min="1">
+               </div>
+               <div class="col-md-2">
+                  <button type="submit" class="btn btn-search w-100">Tìm kiếm</button>
+               </div>
+               @if(request('search') || request('room_type') || request('max_guest'))
+                  <div class="col-md-12">
+                     <a href="{{ url('index_room') }}" class="btn btn-secondary w-100">Xóa bộ lọc</a>
+                  </div>
+               @endif
+            </form>
+         </div>
+      </div>
+
+      <div class="row">
+         @foreach ($room as $rooms)
+            <div class="col-md-4 col-sm-6">
+               <a href="{{ url('room_details', $rooms->id) }}" style="text-decoration: none; color: inherit;">
+                  <div id="serv_hover" class="room">
+                     <div class="room_img">
+                        <figure><img
+                              style="max-height:194.6px; max-width:346px; width:100%; height:auto; object-fit:cover;"
+                              src="room/{{ $rooms->image }}" alt="#" /></figure>
+                     </div>
+                     <div class="bed_room">
+                        <h3>{{ $rooms->room_title }}</h3>
+                        <p>{!! Str::limit($rooms->description, 100)!!}</p>
+
+                     </div>
+
+                  </div>
+               </a>
+            </div>
+         @endforeach
       </div>
    </div>
-
-   <div class="row">
-      @foreach ($room as $rooms)
-         <div class="col-md-4 col-sm-6">
-            <a href="{{ url('room_details', $rooms->id) }}" style="text-decoration: none; color: inherit;">
-               <div id="serv_hover" class="room">
-                  <div class="room_img">
-                     <figure><img style="max-height:194.6px; max-width:346px; width:100%; height:auto; object-fit:cover;"
-                           src="room/{{ $rooms->image }}" alt="#" /></figure>
-                  </div>
-                  <div class="bed_room">
-                     <h3>{{ $rooms->room_title }}</h3>
-                     <p>{!! Str::limit($rooms->description, 100)!!}</p>
-
-                  </div>
-
-               </div>
-            </a>
-         </div>
-      @endforeach
-   </div>
-
 </div>
 @include('home.footer')
 <!-- end footer -->
