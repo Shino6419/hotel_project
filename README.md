@@ -15,7 +15,13 @@ Dự án quản lý khách sạn xây dựng bằng Laravel.
 -   Import database từ file `database/hotel.sql` vào MySQL
 -   Bật dịch vụ SQL và Apache trên XAMPP
 
-### 3. Chạy ứng dụng
+### 3. Cài đặt dependencies
+
+-   Chạy `composer install` để cài đặt các dependencies của PHP
+-   Chạy `npm install` để cài đặt các dependencies của JavaScript
+-   Chạy `npm run build` để build các assets
+
+### 4. Chạy ứng dụng
 
 -   Sử dụng lệnh `php artisan serve` để tạo địa chỉ host và chạy máy chủ phát triển
 
