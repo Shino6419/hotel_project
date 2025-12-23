@@ -8,6 +8,7 @@ Dự án quản lý khách sạn xây dựng bằng Laravel.
 
 -   **XAMPP**: Cài đặt XAMPP (bao gồm PHP, Apache, MySQL)
 -   **Composer**: Cài đặt Composer để quản lý dependencies của PHP
+-   **Node.js**: Cài đặt Node.js để quản lý dependencies của JavaScript (npm)
 
 ### 2. Cấu hình cơ sở dữ liệu
 
@@ -27,7 +28,7 @@ Dự án quản lý khách sạn xây dựng bằng Laravel.
 
 ## Web đã Deploy
 
-Ứng dụng đã được triển khai tại: **https://sendavilla.totalh.net/**
+Website đã được triển khai tại: **https://sendavilla.totalh.net/**
 
 ## Lưu ý
 
