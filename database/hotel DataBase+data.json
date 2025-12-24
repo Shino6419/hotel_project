@@ -1,0 +1,319 @@
+[
+{
+    "type": "header",
+    "version": "5.2.1",
+    "comment": "Export to JSON plugin for PHPMyAdmin"
+},
+{
+    "type": "database",
+    "name": "hotel"
+},
+{
+    "type": "table",
+    "name": "bookings",
+    "database": "hotel",
+    "data": 
+[
+{
+    "id": "2",
+    "room_id": "4",
+    "name": "Khang",
+    "email": "1@gmail.com",
+    "phone": "1213123123",
+    "status": "waiting",
+    "start_date": "2025-12-26",
+    "end_date": "2025-12-31",
+    "created_at": "2025-12-23 17:59:46",
+    "updated_at": "2025-12-23 17:59:46"
+}
+]
+
+}
+,{
+    "type": "table",
+    "name": "contacts",
+    "database": "hotel",
+    "data": 
+[
+
+]
+
+}
+,{
+    "type": "table",
+    "name": "failed_jobs",
+    "database": "hotel",
+    "data": 
+[
+
+]
+
+}
+,{
+    "type": "table",
+    "name": "gallaries",
+    "database": "hotel",
+    "data": 
+[
+
+]
+
+}
+,{
+    "type": "table",
+    "name": "migrations",
+    "database": "hotel",
+    "data": 
+[
+{
+    "id": "1",
+    "migration": "2014_10_12_000000_create_users_table",
+    "batch": "1"
+},
+{
+    "id": "2",
+    "migration": "2014_10_12_100000_create_password_resets_table",
+    "batch": "1"
+},
+{
+    "id": "3",
+    "migration": "2014_10_12_200000_add_two_factor_columns_to_users_table",
+    "batch": "1"
+},
+{
+    "id": "4",
+    "migration": "2019_08_19_000000_create_failed_jobs_table",
+    "batch": "1"
+},
+{
+    "id": "5",
+    "migration": "2019_12_14_000001_create_personal_access_tokens_table",
+    "batch": "1"
+},
+{
+    "id": "6",
+    "migration": "2025_08_08_072603_create_sessions_table",
+    "batch": "1"
+},
+{
+    "id": "7",
+    "migration": "2025_08_08_153000_create_rooms_table",
+    "batch": "1"
+},
+{
+    "id": "8",
+    "migration": "2025_08_09_184443_create_bookings_table",
+    "batch": "1"
+},
+{
+    "id": "9",
+    "migration": "2025_08_10_042151_add_status_field_to_bookings",
+    "batch": "1"
+},
+{
+    "id": "10",
+    "migration": "2025_08_11_104721_create_gallaries_table",
+    "batch": "1"
+},
+{
+    "id": "11",
+    "migration": "2025_08_12_034958_create_contacts_table",
+    "batch": "1"
+},
+{
+    "id": "12",
+    "migration": "2025_12_20_062857_change_room_table",
+    "batch": "1"
+}
+]
+
+}
+,{
+    "type": "table",
+    "name": "password_resets",
+    "database": "hotel",
+    "data": 
+[
+
+]
+
+}
+,{
+    "type": "table",
+    "name": "personal_access_tokens",
+    "database": "hotel",
+    "data": 
+[
+
+]
+
+}
+,{
+    "type": "table",
+    "name": "rooms",
+    "database": "hotel",
+    "data": 
+[
+{
+    "id": "3",
+    "room_title": "Regular Garden View",
+    "image": "regular_garden_01.png",
+    "description": "Phòng tiêu chuẩn nhìn ra vườn, thiết kế tối giản hiện đại. Nội thất gồm giường queen, bàn làm việc, tủ quần áo, minibar. Tiện nghi: điều hòa, TV, Wi-Fi ổn định, phòng tắm đứng, khăn tắm & đồ amenities đầy đủ.",
+    "price": "450000",
+    "max_guest": "2",
+    "room_type": "regular",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "4",
+    "room_title": "Regular City View",
+    "image": "regular_city_01.png",
+    "description": "Phòng tiêu chuẩn hướng phố, cửa sổ lớn đón ánh sáng tự nhiên. Nội thất: giường queen, ghế thư giãn, bàn trang điểm. Tiện nghi: máy sấy tóc, két sắt, ấm đun nước, trà\/cà phê, cách âm tương đối.",
+    "price": "520000",
+    "max_guest": "2",
+    "room_type": "regular",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "5",
+    "room_title": "Regular Twin Cozy",
+    "image": "regular_twin_01.png",
+    "description": "Phòng 2 giường đơn phù hợp bạn bè\/đồng nghiệp. Nội thất gọn gàng, tông màu ấm. Tiện nghi: điều hòa, TV, Wi-Fi, bàn làm việc, phòng tắm sạch sẽ, đèn đọc sách từng giường.",
+    "price": "560000",
+    "max_guest": "2",
+    "room_type": "regular",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "6",
+    "room_title": "Premium Balcony",
+    "image": "premium_balcony_01.png",
+    "description": "Phòng hạng premium có ban công riêng, không gian rộng thoáng. Nội thất: giường king, sofa nhỏ, bàn trà. Tiện nghi: bồn tắm hoặc tắm đứng (tùy phòng), minibar nâng cấp, rèm cản sáng, âm thanh cách âm tốt.",
+    "price": "790000",
+    "max_guest": "3",
+    "room_type": "premium",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "7",
+    "room_title": "Premium Family",
+    "image": "premium_family_01.png",
+    "description": "Phòng gia đình rộng rãi, bố trí linh hoạt cho nhóm nhỏ. Nội thất: giường king + sofa bed, bàn ăn nhỏ. Tiện nghi: 2 TV (tùy phòng), không gian lưu trữ lớn, phòng tắm rộng, phù hợp nghỉ dưỡng dài ngày.",
+    "price": "950000",
+    "max_guest": "4",
+    "room_type": "premium",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "8",
+    "room_title": "Premium Pool View",
+    "image": "premium_pool_01.png",
+    "description": "Phòng premium hướng hồ bơi, phong cách resort. Nội thất: giường king, ghế dài thư giãn, bàn làm việc. Tiện nghi: máy pha cà phê, bộ đồ tắm, phòng tắm kính, ánh sáng dịu, phù hợp cặp đôi.",
+    "price": "890000",
+    "max_guest": "3",
+    "room_type": "premium",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "9",
+    "room_title": "Deluxe Ocean View",
+    "image": "deluxe_ocean_01.png",
+    "description": "Phòng deluxe nhìn thẳng biển, cửa kính lớn toàn cảnh. Nội thất cao cấp: giường king, sofa dài, bàn trà đá. Tiện nghi: bồn tắm, vòi sen mưa, minibar premium, hệ đèn mood light, cách âm tốt.",
+    "price": "1350000",
+    "max_guest": "3",
+    "room_type": "deluxe",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "10",
+    "room_title": "Deluxe Suite",
+    "image": "deluxe_suite_01.png",
+    "description": "Suite deluxe có khu vực phòng khách riêng. Nội thất: giường king, sofa lớn, bàn ăn\/tiếp khách. Tiện nghi: 2 TV, bồn tắm, áo choàng tắm, két sắt lớn, không gian sang trọng cho kỳ nghỉ đặc biệt.",
+    "price": "1750000",
+    "max_guest": "4",
+    "room_type": "deluxe",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+},
+{
+    "id": "11",
+    "room_title": "Deluxe Penthouse",
+    "image": "deluxe_penthouse_01.png",
+    "description": "Penthouse cao cấp nhất, trần cao và nội thất sang trọng. Nội thất: giường king, phòng khách rộng, góc làm việc riêng, view đẹp. Tiện nghi: bồn tắm lớn, vòi sen mưa, minibar cao cấp, không gian riêng tư tuyệt đối.",
+    "price": "2450000",
+    "max_guest": "4",
+    "room_type": "deluxe",
+    "created_at": "2025-12-23 20:26:10",
+    "updated_at": "2025-12-23 20:26:10"
+}
+]
+
+}
+,{
+    "type": "table",
+    "name": "sessions",
+    "database": "hotel",
+    "data": 
+[
+{
+    "id": "MWAlpQlhbG7EjHCjf4EYhswCi2UH1ss0TDjdT3dI",
+    "user_id": "2",
+    "ip_address": "127.0.0.1",
+    "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/143.0.0.0 Safari\/537.36",
+    "payload": "YTo0OntzOjY6Il90b2tlbiI7czo0MDoiZWVtR0k5c2JmcWhieTduQmJIUU5OMzd4UnFRQ2plaEQxOEZRdjBVeiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9lZGl0X2Jvb2tpbmcvMiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==",
+    "last_activity": "1766513036"
+}
+]
+
+}
+,{
+    "type": "table",
+    "name": "users",
+    "database": "hotel",
+    "data": 
+[
+{
+    "id": "1",
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "phone": "12345678",
+    "usertype": "admin",
+    "email_verified_at": null,
+    "password": "$2y$10$sE.Jje9CNRUScwB2dtuVWuBXTxijspXvpGSLrBpsUH3Yxwk0Ci3\/G",
+    "two_factor_secret": null,
+    "two_factor_recovery_codes": null,
+    "two_factor_confirmed_at": null,
+    "remember_token": null,
+    "current_team_id": null,
+    "profile_photo_path": null,
+    "created_at": "2025-12-20 06:30:04",
+    "updated_at": "2025-12-20 06:30:04"
+},
+{
+    "id": "2",
+    "name": "Khang",
+    "email": "1@gmail.com",
+    "phone": "1213123123",
+    "usertype": "user",
+    "email_verified_at": null,
+    "password": "$2y$10$PBuH8L3YZEaaJru2iVh0GOAe9C3fAwe6isPgvbcE42hU0wfgEgLKW",
+    "two_factor_secret": null,
+    "two_factor_recovery_codes": null,
+    "two_factor_confirmed_at": null,
+    "remember_token": null,
+    "current_team_id": null,
+    "profile_photo_path": null,
+    "created_at": "2025-12-20 07:58:25",
+    "updated_at": "2025-12-20 07:58:25"
+}
+]
+
+}
+]
